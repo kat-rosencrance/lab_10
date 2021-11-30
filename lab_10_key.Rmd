@@ -43,4 +43,16 @@ praise("${Exclamation}, ${EXCLAMATION}...${exclamation}!!!!")
 
 Use cowsay say() to make a chracter say something to you
 
+## use paletteer to access thousands of color pallettes
+
+```{r}
+storms %>% 
+  group_by(name) %>% 
+  summarize(min_pressure = min(pressure, na.rm = TRUE)) %>% 
+  slice_min(n= 10, min_pressure) %>% 
+  ggplot(aes( x = min_pressure, y = name))+
+  geom_col(aes(fill = name))+
+  scale_fill_paletteer_d("palettetown::roselia")
+```
+
 
